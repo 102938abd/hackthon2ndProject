@@ -1,0 +1,20 @@
+  <!-bootstrap->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-font->
+  <style type="text/css" media="screen">
+    p.firstFont{
+      font-family: Monospace, Helvetica , sans-serif;
+      }
+  </style>
+
+<!-border->
+<style type="text/css" media="screen">
+  body{
+  margin-left:7%;
+  margin-right:7%;
+  }
+</style>
+<title>BookTrade</title>

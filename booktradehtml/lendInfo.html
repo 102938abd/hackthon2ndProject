@@ -1,11 +1,35 @@
+<!doctype html>
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  <title>Lend</title>
-
+  <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'> </script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <link rel='stylesheet' type='text/css' href='/resources/tutorial/css/example.css'>
+  <title>LendInfo</title>
 </head>
 <body>
-  success lend page
+  <div id="messageDiv"></div>
+  <input type="text" name="nameInput" placeholder="bookName">
+  <input type="text" name="messageInput" placeholder="sendMessage">
+  <script>
+   var myDataRef = new Firebase('https://n75mwf1gb2x.firebaseio-demo.com/');
+     $('#messageInput').keypress(function (e) {
+      if (e.keyCode == 13) {
+        var bookName = $('#nameInput').val();
+        var sendText = $('#messageInput').val();
+        myDataRef.push({name: bookName, text: sendText});
+        $('#messageInput').val('');
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.text);
+        });
+        function displayChatMessage(bookName, sendText) {
+          $('<div/>').text(sendText).prepend($('<em/>').text(bookName+': ')).appendTo($('#messagesDiv'));
+          $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+ };
+
+  </script>
 </body>
 </html>
